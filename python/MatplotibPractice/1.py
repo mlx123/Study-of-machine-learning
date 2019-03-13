@@ -1,0 +1,97 @@
+#matplotlib.pyplot做图技巧总结：先画图，在调整坐标轴，注释等参数。做图包括折线图，饼图等，都是调用相应的函数，提供参数。不同的图调整坐标轴距，加注释的方式是一样的
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+#=======================做折线图============================
+
+#1.plot是折线的意思，plt.plot()返回表示折线的对象
+#  plt.xlabel返回Text对象，该对象用于处理做图时所需的文本
+#   折线图的常见参数有颜色 线型线宽，标记点
+plt.plot([1,2,3,4,5],[1,4,9,16,25])
+plt.xlabel('xlabel',fontsize = 16)
+plt.ylabel('ylabel')
+plt.show()
+#2.在同一张图中绘制多条线
+#plt.plot(tang_numpy,tang_numpy,'r--', tang_numpy,tang_numpy**2,'bs', tang_numpy,tang_numpy**3,'go')
+
+#3.绘制子图  211 表示一会要画的图是1行2列的 最后一个1表示的是子图当中的第1个图
+plt.subplot(121)
+#setp:set property 设置xx的参数，或者查看xx可设置的参数
+#plt.setp()
+p1 = plt.subplot(211)
+
+#4.文本处理 plt.text(坐标，文本)其中坐标是以x,y轴的坐标为基础的
+#常见的文本：plt.ylabel   plt.text(1,2,'tang yu di')在指定的位置放置文本   p1 = plt.title('tang yu di:-33-')在最上面放文本  p4 = plt.annotate('tangyudi',xy=(-5,0),xytext=(-2,0.3),arrowprops = dict(facecolor='red',shrink=0.05,headlength= 20,headwidth = 20))放文本和箭头
+
+#5.设置坐标轴 fig = plt.gca() 得到表示该图的坐标轴的对象AxesSubplot
+#常见操作1：设置XAxis(坐标轴的刻度),x grid lines(网格线),x tick lines(刻度线)  fig.set_xticklabels(labels,rotation = 45,horizontalalignment='right')按照指定的方式设置坐标轴
+#    设置坐标轴是否可见 fig.axes.get_xaxis().set_visible(False)
+fig = plt.gca()
+fig.axes.get_xaxis().set_visible(False)
+
+#常见操作2：fig.spines['top',bottom,left,right]设置4个轴，
+fig.spines['top'].set_visible(False)
+
+#常见操作3：设置刻度
+plt.tick_params
+plt.yticks(y_pos, bar_labels, fontsize=16)#指定坐标轴刻度的位置和值
+
+#在坐标处加一条横线
+fig.axvline(0,color='grey',linewidth=2)
+fig.axhline(0,color='grey',linewidth=2)
+plt.vlines(min(data),-1,len(data)+0.5,linestyle = 'dashed') #vlines表示画竖直线，min(data)表示要画的位置，后面两个表示长度
+#设置坐标轴值的范围
+plt.ylim([范围])
+plt.xlim([范围])
+plt.axis('equal') #让x,y坐标轴一样
+
+#6.图例 返回一个图例对象
+#plt.legend(loc='upper center',bbox_to_anchor = (0.5,15) ,ncol=3，framealpha = 0.1) #loc和bbox_to_anchor指定图例位置，ncol指定几列，framealpha = 0.1图例的透明程度
+#plt.legend(loc='best')
+
+#=================做条形图===================
+#plt.hist
+#bins:bins确定的是一系列的左开右闭区间，统计的是该左开右闭区间出现的次数   控制bar的宽度（区间的长度），控制bar的中心点（align=u'left'即bar的中线与区间的左指相等，bar位于[区间左值-0.5×区间宽度-区间左值+0.5×区间宽度]）
+x = np.array([5,5,5,5,5,4,4,4,4,3,3,3,2,2,1.7])
+bins= np.arange(1,8,0.5)
+#bins确定的区间分别为[1,1.5) [1.5,2) ...[7,7.5) [7.5,8),区间宽度0.5决定了bar的宽度，align=u'left'表示bar的中线与左值对齐
+plt.hist(x,alpha = 0.5,bins=bins,histtype=u'bar', align=u'left',orientation=u'vertical')
+
+#plt.bar   plt.barh
+bars = plt.barh(x,y,color='red')#返回的是可遍历对象，允许我们遍历每一个bar。bar[0]-bar[x]
+#单独设置bar中的每个对象  bar[0].set(edgecolor = ,color = ,linewidth = )
+#在同一个图中绘制多个bar,指定绘制bar时不同的起始位置
+plt.bar(pos,green_data,width,alpha=0.5,color='g',label=labels[0])
+plt.bar([p+width for p in pos],blue_data,width,alpha=0.5,color='b',label=labels[1])
+plt.bar([p+width*2 for p in pos],red_data,width,alpha=0.5,color='r',label=labels[2])
+
+
+
+#===============填充两个图像之间的空隙fill_between======
+plt.fill_between(x,y1,y2,color='red')#以x为坐标，填充y1 y2之间的空隙
+
+
+#===图像保存====
+plt.figure(figsize=(6,9))#设置大小
+
+#画饼图的参数
+patches,l_text,p_text = plt.pie(sizes,explode=explode,labels=labels,colors=colors,
+                                labeldistance = 1.1,autopct = '%3.1f%%',shadow = False,
+                                startangle = 90,pctdistance = 0.6)
+#labeldistance，文本的位置离远点有多远，1.1指1.1倍半径的位置
+#autopct，圆里面的文本格式，%3.1f%%表示小数有三位，整数有一位的浮点数
+#shadow，饼是否有阴影
+#startangle，起始角度，0，表示从0开始逆时针转，为第一块。一般选择从90度开始比较好看
+#pctdistance，百分比的text离圆心的距离
+#patches, l_texts, p_texts，为了得到饼图的返回值，p_texts饼图内部文本的，l_texts饼图外label的文本
+
+
+
+
+
+
+##更多请查看官网实例
+#https://matplotlib.org/gallery/index.html
+
