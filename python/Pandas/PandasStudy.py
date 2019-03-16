@@ -45,7 +45,9 @@ df.isnull()判斷NaN  df.fillna()#指定缺失值填充方式
 s1.append(s2)  df.assign()新增一列  pd.concat([df1,df2],axis= )  pd.merge(df1,df2,on ='數據合並的鍵' ,how = '合並方式')或指定新的列並賦值   如s['j']=50  df.loc[][] =
 del s1['A']       s.drop(axis= ,inplace = )  axis指定刪除的是行還是列
 df.drop_duplicates(subset = '按照該列去掉重復的值')去掉重復的值
-
+#将多列合并为一列或者将一列拆分
+参考https://blog.csdn.net/mingkoukou/article/details/82867218
+合并：pd.melt  #将value_vars中指定的多列合并为一列
 #排序
 df.sort_values(by = [按照哪些列排序]，ascending = [排序方式]，inplace = )
 
