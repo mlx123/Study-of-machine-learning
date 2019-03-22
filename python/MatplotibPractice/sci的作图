@@ -1,0 +1,8 @@
+#较为标准的SCI作图
+plt.figure(figsize=(20,15))
+plt.plot(s5,'b--',linewidth = 4,label = 'AvgIOU')
+plt.plot(s4,'r-',linewidth = 4,label = '0.5Recall')
+
+plt.grid(True, linestyle=':',linewidth=2)#设置grid
+plt.legend(loc='lower right',fontsize=50)#设置图例
+plt.savefig('test4.tif',dpi=1000)#保存图形
