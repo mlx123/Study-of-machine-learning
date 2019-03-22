@@ -21,6 +21,15 @@ plt.subplot(121)
 #setp:set property 设置xx的参数，或者查看xx可设置的参数
 #plt.setp()
 p1 = plt.subplot(211)
+#设置图的大小plt.figure(figsize=(a,b))
+
+例：画两个大小不同的折线图
+plt.figure(1,figsize=(5,2))
+plt.plot(s4,'r')
+plt.figure(2,figsize=(3,2))
+plt.plot(s4+0.1,'b')
+
+
 
 #4.文本处理 plt.text(坐标，文本)其中坐标是以x,y轴的坐标为基础的
 #常见的文本：plt.ylabel   plt.text(1,2,'tang yu di')在指定的位置放置文本   p1 = plt.title('tang yu di:-33-')在最上面放文本  p4 = plt.annotate('tangyudi',xy=(-5,0),xytext=(-2,0.3),arrowprops = dict(facecolor='red',shrink=0.05,headlength= 20,headwidth = 20))放文本和箭头
