@@ -43,6 +43,7 @@ df.isnull()判斷NaN  df.fillna()#指定缺失值填充方式
 #運算
 ##增加刪除
 s1.append(s2)  df.assign()新增一列  pd.concat([df1,df2],axis= )  pd.merge(df1,df2,on ='數據合並的鍵' ,how = '合並方式')或指定新的列並賦值   如s['j']=50  df.loc[][] =
+df.insert(位置，列名，值)插入一列
 del s1['A']       s.drop(axis= ,inplace = )  axis指定刪除的是行還是列
 df.drop_duplicates(subset = '按照該列去掉重復的值')去掉重復的值
 #将多列合并为一列或者将一列拆分
@@ -56,6 +57,9 @@ df.apply(函數f,axis = 'xxx')
 
 #分組
 pd.cut(數據,bins,label = )
+
+转为numpy的ndarray,方便矩阵计算
+df.as_matrix()  
 
 2.Series
 Series同时可以进行np.array和dict的操作（因为pandas就是基于numpy构建的）
