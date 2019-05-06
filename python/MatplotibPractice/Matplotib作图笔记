@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 #1.plot是折线的意思，plt.plot()返回表示折线的对象
 #  plt.xlabel返回Text对象，该对象用于处理做图时所需的文本
-#   折线图的常见参数有颜色 线型线宽，标记点
+#   折线图的常见参数有颜色c 线型线宽，标记点marker
 plt.plot([1,2,3,4,5],[1,4,9,16,25])
 plt.xlabel('xlabel',fontsize = 16)
 plt.ylabel('ylabel')
