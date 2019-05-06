@@ -1,0 +1,10 @@
+numpy是方便矩阵计算的
+
+numpy.shape  通过元祖返回矩阵的行数，列数 (rows,cols)
+
+np.mamul()或a@b  矩阵乘法
+np.dot() 点乘 内积与np
+与np.multiply()或a*b 对应元素相乘
+np.sum()对矩阵求和，可以按行列等维度求和，也可以对整个矩阵求和
+np.ravel()将多维数组摊平为一维数组
+np.linalg  计算矩阵的范数，奇异值，矩阵分解，矩阵的逆等(https://docs.scipy.org/doc/numpy/reference/routines.linalg.html)
