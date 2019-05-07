@@ -14,6 +14,9 @@ age = df[['Age','Name']]#得到DataFrame结构
  #将dataframe看成二维的numpy.array,通过指定行 列的切片来索引某些行列
  df.iloc[行的位置切片，列的位置切片]或df.loc[行的索引切片，列的标签切片]
 如df.loc['Cumings, Mrs. John Bradley (Florence Briggs Thayer)','Survived']
+df.iloc[1,2]#1可以是切片，也可以是要取的行号构成的列表，2可以是由False和True构成的列表，要取的列为True
+
+
 
 #bool类型的索引
 此时将dataframe看作二维数组格式，应用来广播原则
@@ -97,3 +100,11 @@ df.plot(kind = '') 默認折線圖，bar繪制條形圖，hist繪制直方圖
 #用時間作爲索引取值
 
 8.對字符串的操作
+
+---------------------------实际应用---------------------------------------------
+#获得数据中正样本数目的三种方法
+
+number_records_fraud = data['Class'].value_counts().sort_values()[1]
+number_records_fraud= data[data['Class']==1].shape[0]
+number_records_fraud = len(data[data.Class == 1])
+number_records_fraud
