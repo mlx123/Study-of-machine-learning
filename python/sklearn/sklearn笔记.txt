@@ -5,3 +5,22 @@
 非线性变换：把他正变换到已知的范围或分布中，如变换为高斯分布
 归一化是将单个样本缩放为具有单位范数的过程。
 其他
+
+2.数据分割
+model_selection.train_test_split 可以随机将数据分割为训练集和测试集
+
+
+
+-----------------------模型类----------------
+1.sklearn.linear_model  产生线性模型，如贝叶斯回归，逻辑回归，并用模型取训练数据
+      model.fit()#用数据训练模型的参数   model.predict()#用训练好的模型去预测  其他，如逻辑回归预测出概率(lr.predict_proba(X_test_undersample.values))
+
+
+---------模型的validata--------
+交叉验证：
+    数据分割model_selection.KFold([n_splits, shuffle, …]) 把数据分成K份用于交叉验证 用法: fold = KFold(5,shuffle=False)#给定要分割的份数  for indices in fold.split(Arraydata)#根据Arraydata的长度和药分割的份数给出分割后的样本训练集的索引indices[0]和验证集的索引indices[1]
+	         cross_val_score 得到交叉验证的的得分
+			 
+	-------模型的评估指标----
+	分类指标：confusion_matrix recall_score f1_score  classification_report(得到一个主要参数的报告)
+	
