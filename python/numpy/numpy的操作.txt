@@ -8,3 +8,4 @@ np.dot() 点乘 内积与np
 np.sum()对矩阵求和，可以按行列等维度求和，也可以对整个矩阵求和
 np.ravel()将多维数组摊平为一维数组
 np.linalg  计算矩阵的范数，奇异值，矩阵分解，矩阵的逆等(https://docs.scipy.org/doc/numpy/reference/routines.linalg.html)
+np.random  numpy的随机模块，可以产生随机数，打乱数据，随机采样，从随机分布种采样， np.random.shuffle(data)数据洗牌
