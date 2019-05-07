@@ -34,7 +34,7 @@ df.set_index('标签名')#索引不是普通的放在第一列的标签，而是
 
 #属性
 df.info()   df.columns
-df.values #将df展开为np.array
+df.values #将df展开为np.array df['x'].values 将series转为np.array
 df.describe() #得到dataframe的基本统计特性 =df.mean()  df.max()  df.min()  df.count()等
 .value_counts(ascending     bins) 統計出現的次數
 pd.crosstab()計數
