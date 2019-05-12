@@ -24,3 +24,7 @@ model_selection.train_test_split 可以随机将数据分割为训练集和测�
 	-------模型的评估指标----
 	分类指标：confusion_matrix recall_score f1_score  classification_report(得到一个主要参数的报告)
 	
+	
+sklearn.grid_search.GridSearchCV  遍历模型的超参数的不同组合来找到最佳的超参数
+
+
