@@ -83,6 +83,10 @@ groupby的返回的結果是dataframe結構
 size()得到索引中每種組合出現的次數   describe  得到表格的統計特性
 
 #取分割後的列，並計算其統計特性等  df.groupby('Sex')['Surived'].mean()
+首先用sex分类（groupby），可以分为male/female.然后，分别获得male和female中Survived中的样本,形成两个列表list,然后对两个列表分别执行列表函数mean()，获得返回值，然后和male/female构成Dataframe后返回。
+
+
+
 
 4.統計pandas兩個特徵（兩個列標籤之間的關系）
 cow()斜方差 df.corr()特徵間的相關系數
