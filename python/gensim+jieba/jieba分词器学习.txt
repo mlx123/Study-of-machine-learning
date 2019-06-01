@@ -1,0 +1,8 @@
+1.利用jieba分词器将一句话，一段话分为各个词放入列表中
+jieba.lcut(line)#t = jieba.lcut("我爱你,你真好，我想和你在一起") 得到['我爱你', ',', '你', '真', '好', '，', '我', '想', '和', '你', '在', '一起']
+
+2.利用jieba.analyse提取一段话的关键词
+import jieba.analyse
+jieba.analyse.extract_tags(content_S_str, topK=5, withWeight=False)#从content_S_str中提取5个关键词
+
+

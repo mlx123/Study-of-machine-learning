@@ -52,8 +52,16 @@ df.drop_duplicates(subset = '按照該列去掉重復的值')去掉重復的值
 #将多列合并为一列或者将一列拆分
 参考https://blog.csdn.net/mingkoukou/article/details/82867218
 合并：pd.melt  #将value_vars中指定的多列合并为一列
+筛选：df_train.label.unique()#unique提取所有的样本值
+样本映射：df_train['label'] = df_train['label'].map(label_mapping) 根据字典label_mapping将字典中原来值映射为另一值
+
+
+
+
 #排序
 df.sort_values(by = [按照哪些列排序]，ascending = [排序方式]，inplace = )
+
+
 
 #對每一行或每一列的數據執行相同的操作
 df.apply(函數f,axis = 'xxx')
@@ -85,6 +93,10 @@ size()得到索引中每種組合出現的次數   describe  得到表格的統�
 #取分割後的列，並計算其統計特性等  df.groupby('Sex')['Surived'].mean()
 首先用sex分类（groupby），可以分为male/female.然后，分别获得male和female中Survived中的样本,形成两个列表list,然后对两个列表分别执行列表函数mean()，获得返回值，然后和male/female构成Dataframe后返回。
 
+   利用groupby来统计词频：统计df_all_words['all_words']中每个词出现的词频
+      words_count=df_all_words.groupby(by=['all_words'])['all_words'].agg({"count":numpy.size})
+		words_count=words_count.reset_index().sort_values(by=["count"],ascending=False)
+	  
 
 
 

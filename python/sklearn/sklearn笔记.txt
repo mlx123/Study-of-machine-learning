@@ -28,3 +28,17 @@ model_selection.train_test_split 可以随机将数据分割为训练集和测�
 sklearn.grid_search.GridSearchCV  遍历模型的超参数的不同组合来找到最佳的超参数
 
 
+4.sklearn中将文本字符串向量化
+4.1 根据词频向量化
+from sklearn.feature_extraction.text import CountVectorizer
+texts=["dog cat fish","dog cat cat","fish bird", 'bird']
+cv = CountVectorizer()
+cv_fit=cv.fit_transform(texts)
+print(cv.get_feature_names())
+print(cv_fit.toarray())
+
+4.2用tf-idf将一段话向量化
+from sklearn.feature_extraction.text import TfidfVectorizer
+vectorizer = TfidfVectorizer(analyzer='word', max_features=4000,  lowercase = False)
+vectorizer.fit(words)
+vectorizer.transform(words)

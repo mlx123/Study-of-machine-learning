@@ -1,0 +1,11 @@
+1.使用gensim的LDA生成主题模型
+    from gensim import corpora, models, similarities
+	import gensim
+	#http://radimrehurek.com/gensim/
+	
+	1.建立文本和编号的字典对应关系：dictionary = corpora.Dictionary(contents_clean) 
+	2.根据dictionary建立词袋corpus：corpus = [dictionary.doc2bow(sentence) for sentence in contents_clean]
+	3.生成LDA模型：lda = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=20) 
+	4.得到关键字：print (lda.print_topic(1, topn=5))
+	
+	
