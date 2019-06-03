@@ -124,3 +124,6 @@ number_records_fraud = data['Class'].value_counts().sort_values()[1]
 number_records_fraud= data[data['Class']==1].shape[0]
 number_records_fraud = len(data[data.Class == 1])
 number_records_fraud
+
+#将字符串形式的分类变量转为数值特征
+pandas.get_dummies

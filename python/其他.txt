@@ -1,0 +1,11 @@
+将文本字符串时间处理为python的标准时间
+#根据文本中提取出的年月日组合为表示时间的年月日
+dates = [str(int(year))+'-'+str(int(month))+'-'+str(int(day)) for year,month,day in zip(years,months,days)]
+dates = [datetime.datetime.strptime(date,'%Y-%m-%d') for date in dates]
+dates
+
+#打印列表
+print('We have {} days of data with {} variables {}.'.format(*[1,2,4]))
+打印结果为：We have 1 days of data with 2 variables 4.
+
+round设置精度(显示几位小数）

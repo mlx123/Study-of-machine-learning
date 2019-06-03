@@ -26,7 +26,7 @@ model_selection.train_test_split 可以随机将数据分割为训练集和测�
 	
 	
 sklearn.grid_search.GridSearchCV  遍历模型的超参数的不同组合来找到最佳的超参数
-
+RandomizedSearchCV 寻找最佳参数
 
 4.sklearn中将文本字符串向量化
 4.1 根据词频向量化
